@@ -26,14 +26,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '24'
+          node-version: '22'
           cache: 'npm'
 
       - name: Show environment
         run: |
           node --version
           npm --version
-          pwd
           ls -la
 
       - name: Install dependencies
@@ -50,7 +49,6 @@ jobs:
 
       - name: Check output folder
         run: |
-          echo "Checking _site..."
           test -d _site || (echo "_site folder not found" && exit 1)
           find _site -maxdepth 2 -type f | head -100
 
@@ -62,6 +60,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
