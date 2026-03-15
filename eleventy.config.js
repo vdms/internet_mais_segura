@@ -98,7 +98,7 @@ module.exports = function(eleventyConfig) {
       includes: "_includes",
       data: "_data"
     },
-    pathPrefix: "/internet_mais_segura/",
+    pathPrefix: process.env.ELEVENTY_ENV === "production" ? "/internet_mais_segura/" : "/",
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

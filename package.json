@@ -8,7 +8,7 @@
     "dev:eleventy": "eleventy --serve --quiet",
     "dev:scss": "sass src/assets/scss:_site/assets/css --watch --load-path=node_modules",
     "dev:js": "node scripts/build-js.js --watch",
-    "build:eleventy": "eleventy",
+    "build:eleventy": "ELEVENTY_ENV=production eleventy",
     "build:scss": "sass src/assets/scss:_site/assets/css --style=compressed --load-path=node_modules --no-source-map",
     "build:js": "node scripts/build-js.js --minify",
     "build:search": "npx -y pagefind --site _site",
