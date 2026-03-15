@@ -1,0 +1,85 @@
+---
+layout: layouts/page.njk
+title: Blog
+description: Artigos e recursos sobre segurança online para crianças e jovens
+pagination:
+  data: collections.posts
+  size: 9
+  alias: posts
+---
+
+<div class="blog-header">
+  <h1>Blog</h1>
+  <p>Artigos, dicas e recursos sobre segurança digital para crianças e jovens</p>
+</div>
+
+<section>
+  <div class="section-wide">
+    {% if posts.length > 0 %}
+    <div class="blog-grid">
+      {% for post in posts %}
+      <article class="blog-card">
+        {% if post.data.image %}
+        <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="blog-card-image">
+        {% endif %}
+        
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <time datetime="{{ post.date | htmlDateString }}">
+              {{ post.date | readableDate }}
+            </time>
+            {% if post.data.readingTime %}
+            <span>{{ post.data.readingTime }} min</span>
+            {% endif %}
+          </div>
+          
+          <h3>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </h3>
+          
+          <p class="blog-card-excerpt">
+            {{ post.data.description or (post.templateContent | excerpt) }}
+          </p>
+          
+          {% if post.data.tags %}
+          <div class="blog-card-tags">
+            {% for tag in post.data.tags %}
+              {% if tag != "posts" %}
+              <span class="tag">{{ tag }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div style="text-align: center; padding: 80px 20px;">
+      <p style="font-size: 1.2rem; color: var(--text-light);">
+        Ainda não há posts publicados. Volte em breve!
+      </p>
+    </div>
+    {% endif %}
+    
+    {% if pagination.pages.length > 1 %}
+    <nav class="pagination" aria-label="Paginação do blog">
+      {% if pagination.previousPageHref %}
+      <a href="{{ pagination.previousPageHref }}">← Anterior</a>
+      {% endif %}
+      
+      {% for pageNumber in range(1, pagination.pages.length + 1) %}
+        {% if pageNumber == pagination.pageNumber + 1 %}
+        <span class="current">{{ pageNumber }}</span>
+        {% else %}
+        <a href="{{ pagination.pages[pageNumber - 1] }}">{{ pageNumber }}</a>
+        {% endif %}
+      {% endfor %}
+      
+      {% if pagination.nextPageHref %}
+      <a href="{{ pagination.nextPageHref }}">Seguinte →</a>
+      {% endif %}
+    </nav>
+    {% endif %}
+  </div>
+</section>

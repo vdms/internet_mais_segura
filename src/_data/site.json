@@ -1,0 +1,21 @@
+{
+  "name": "Internet mais segura",
+  "url": "https://vdms.github.io/internet_mais_segura",
+  "description": "Guia de segurança online para proteger crianças e jovens na internet",
+  "author": "Vicente Sarmento",
+  "locale": "pt-PT",
+  "emergencyNumber": "112",
+  "helplines": [
+    {
+      "name": "Internet Segura Portugal",
+      "description": "Linha de apoio nacional para situações de risco online para menores",
+      "url": "https://www.internetsegura.pt"
+    },
+    {
+      "name": "Linha de Emergência Criança",
+      "number": "116 000",
+      "description": "Para situações urgentes envolvendo crianças em risco",
+      "url": "tel:116000"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+// =========================================
+// FOOTER
+// =========================================
+
+footer {
+  // Variáveis locais do componente
+  --footer-bg: var(--navy);
+  --footer-text: rgba(255, 255, 255, 0.7);
+  --footer-text-strong: var(--white);
+  --footer-link: var(--accent-light);
+  --footer-link-hover: var(--accent);
+  --footer-social-bg: rgba(255, 255, 255, 0.1);
+  --footer-social-hover-bg: var(--accent);
+  --footer-border: rgba(255, 255, 255, 0.1);
+  
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: $spacing-xl $spacing-lg;
+  text-align: center;
+  
+  @include mobile {
+    padding: $spacing-lg $spacing-md;
+  }
+  
+  p {
+    margin-bottom: $spacing-sm;
+    line-height: 1.6;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  strong {
+    color: var(--footer-text-strong);
+    font-weight: 600;
+  }
+  
+  a {
+    color: var(--footer-link);
+    text-decoration: underline;
+    
+    &:hover {
+      color: var(--footer-link-hover);
+    }
+  }
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+  
+  a {
+    color: var(--footer-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: var(--footer-link);
+    }
+  }
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+  
+  a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-full;
+    background: var(--footer-social-bg);
+    color: var(--footer-text);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background: var(--footer-social-hover-bg);
+      color: var(--footer-text-strong);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.footer-emergency {
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1px solid var(--footer-border);
+  font-size: 0.8rem;
+  
+  strong {
+    font-size: 1.2rem;
+    color: var(--footer-link);
+  }
+}

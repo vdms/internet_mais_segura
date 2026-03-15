@@ -1,0 +1,155 @@
+// =========================================
+// SOCIAL SHARING
+// =========================================
+
+.social-share {
+  // Variáveis locais do componente
+  --social-label-color: var(--text-light);
+  
+  // Cores das redes sociais
+  --social-twitter-bg: #1da1f2;
+  --social-facebook-bg: #1877f2;
+  --social-linkedin-bg: #0a66c2;
+  --social-whatsapp-bg: #25d366;
+  --social-email-bg: var(--navy);
+  --social-email-bg-hover: var(--navy-mid);
+  --social-copy-bg: var(--cream);
+  --social-copy-text: var(--text);
+  --social-copy-border: var(--border);
+  --social-copy-bg-hover: var(--border);
+  --social-copy-success-bg: var(--green);
+  --social-button-text: var(--white);
+  
+  display: flex;
+  gap: $spacing-sm;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-share-label {
+  font-size: 0.9rem;
+  color: var(--social-label-color);
+  font-weight: 600;
+}
+
+.social-share-button {
+  @include button-reset;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all $transition-fast;
+  @include focus-ring;
+  
+  &.twitter {
+    background: var(--social-twitter-bg);
+    color: var(--social-button-text);
+    
+    &:hover {
+      background: darken(#1da1f2, 10%);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.facebook {
+    background: var(--social-facebook-bg);
+    color: var(--social-button-text);
+    
+    &:hover {
+      background: darken(#1877f2, 10%);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.linkedin {
+    background: var(--social-linkedin-bg);
+    color: var(--social-button-text);
+    
+    &:hover {
+      background: darken(#0a66c2, 10%);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.whatsapp {
+    background: var(--social-whatsapp-bg);
+    color: var(--social-button-text);
+    
+    &:hover {
+      background: darken(#25d366, 10%);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.email {
+    background: var(--social-email-bg);
+    color: var(--social-button-text);
+    
+    &:hover {
+      background: var(--social-email-bg-hover);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.copy {
+    background: var(--social-copy-bg);
+    color: var(--social-copy-text);
+    border: 1px solid var(--social-copy-border);
+    
+    &:hover {
+      background: var(--social-copy-bg-hover);
+      transform: translateY(-2px);
+    }
+    
+    &.copied {
+      background: var(--social-copy-success-bg);
+      color: var(--social-button-text);
+      border-color: var(--social-copy-success-bg);
+    }
+  }
+}
+
+.social-share-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: var(--white);
+  padding: 4px $spacing-xs;
+  border-radius: $radius-sm;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity $transition-fast;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: var(--navy);
+  }
+  
+  .social-share-button:hover & {
+    opacity: 1;
+  }
+}
+
+// Compact version for inline sharing
+.social-share-compact {
+  display: inline-flex;
+  gap: 4px;
+  
+  .social-share-button {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internet mais segura | Guia para Pais e Encarregados de Educação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #162d54;
+    --blue: #1a4a8a;
+    --accent: #d4813a;
+    --accent-light: #e8a060;
+    --cream: #f8f5ef;
+    --text: #1a1a2e;
+    --text-light: #4a5568;
+    --border: #ddd8cc;
+    --white: #ffffff;
+    --red: #c0392b;
+    --green: #1e7a5e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .nav-logo {
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo .shield {
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent-light); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 100px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(26,74,138,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(212,129,58,0.2);
+    border: 1px solid rgba(212,129,58,0.5);
+    color: var(--accent-light);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent-light);
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 640px;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    max-width: 160px;
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 80px 40px;
+  }
+
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 680px;
+    margin-bottom: 52px;
+    font-weight: 300;
+  }
+
+  /* INTRO */
+  .intro-section {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .intro-text p {
+    color: var(--text-light);
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+
+  .intro-text p strong { color: var(--text); }
+
+  .intro-callout {
+    background: var(--navy);
+    color: var(--white);
+    padding: 36px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro-callout::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    color: rgba(212,129,58,0.15);
+    line-height: 1;
+  }
+
+  .intro-callout blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+  }
+
+  .intro-callout cite {
+    font-size: 0.8rem;
+    color: var(--accent-light);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* RISCOS - CARDS */
+  .risks-section {
+    background: var(--cream);
+  }
+
+  .risk-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .risk-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy);
+    padding: 36px;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .risk-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+
+  .risk-card.danger { border-top-color: var(--red); }
+  .risk-card.warning { border-top-color: var(--accent); }
+  .risk-card.serious { border-top-color: var(--navy); }
+
+  .risk-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .risk-card.danger .risk-icon { background: rgba(192,57,43,0.1); }
+  .risk-card.warning .risk-icon { background: rgba(212,129,58,0.1); }
+  .risk-card.serious .risk-icon { background: rgba(13,31,60,0.08); }
+
+  .risk-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .risk-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .risk-signs {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .risk-signs li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+
+  .risk-signs li::before {
+    content: '→';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .risk-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  .risk-card.danger .risk-label { background: rgba(192,57,43,0.1); color: var(--red); }
+  .risk-card.warning .risk-label { background: rgba(212,129,58,0.1); color: #a05a1a; }
+  .risk-card.serious .risk-label { background: rgba(13,31,60,0.08); color: var(--navy); }
+
+  /* SINAIS DE ALERTA */
+  .sinais-section {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sinais-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+
+  .sinais-table th {
+    background: var(--navy);
+    color: var(--white);
+    text-align: left;
+    padding: 14px 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .sinais-table tr:nth-child(even) td { background: var(--cream); }
+
+  .sinais-table td {
+    padding: 14px 20px;
+    font-size: 0.93rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .sinais-table td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+    width: 200px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .badge-red { background: rgba(192,57,43,0.12); color: var(--red); }
+  .badge-orange { background: rgba(212,129,58,0.12); color: #a05a1a; }
+
+  /* CONSELHOS */
+  .conselhos-section {
+    background: var(--cream);
+  }
+
+  .conselhos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .conselho-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 30px;
+  }
+
+  .conselho-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: rgba(13,31,60,0.08);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .conselho-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .conselho-card p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* TÉDIO */
+  .tedio-section {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tedio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .tedio-text p {
+    color: var(--text-light);
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+
+  .tedio-text p strong { color: var(--navy); }
+
+  .tedio-box {
+    background: var(--navy);
+    color: var(--white);
+    padding: 36px;
+  }
+
+  .tedio-box-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .tedio-box-intro {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .tedio-alternativas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .alt-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .tedio-note {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.45);
+    font-style: italic;
+    line-height: 1.5;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 16px;
+  }
+
+  /* FERRAMENTAS */
+  .ferramentas-section {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .ferramentas-section h2 { color: var(--white); }
+  .ferramentas-section .section-intro { color: rgba(255,255,255,0.65); }
+  .ferramentas-section .section-label { color: var(--accent-light); }
+  .ferramentas-section .section-label::after { background: var(--accent-light); }
+
+  .ferramentas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .ferramenta-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 28px;
+    transition: background 0.2s;
+  }
+
+  .ferramenta-card:hover { background: rgba(255,255,255,0.09); }
+
+  .ferramenta-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .ferramenta-card .plataforma {
+    font-size: 0.75rem;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .ferramenta-card p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+
+  /* CONVERSA */
+  .conversa-section {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .conversa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .conversa-intro p {
+    color: var(--text-light);
+    font-size: 0.97rem;
+    margin-bottom: 16px;
+  }
+
+  .conversa-intro strong { color: var(--text); }
+
+  .dialogue-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .msg {
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 88%;
+  }
+
+  .msg.parent {
+    background: var(--navy);
+    color: var(--white);
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+  }
+
+  .msg.child {
+    background: var(--cream);
+    color: var(--text);
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+    border: 1px solid var(--border);
+  }
+
+  .msg-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .msg.parent .msg-label { color: var(--accent-light); }
+  .msg.child .msg-label { color: var(--text-light); }
+
+  /* RECURSOS */
+  .recursos-section {
+    background: var(--cream);
+  }
+
+  .recursos-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .recurso-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .recurso-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .recurso-item p {
+    font-size: 0.82rem;
+    color: var(--text-light);
+  }
+
+  .recurso-link {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .recurso-link:hover { background: var(--blue); }
+
+  /* FOOTER */
+  footer {
+    background: #0a1628;
+    color: rgba(255,255,255,0.5);
+    padding: 40px;
+    text-align: center;
+    font-size: 0.83rem;
+  }
+
+  footer p { margin-bottom: 8px; }
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  /* DIVIDERS */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    .hero { padding: 70px 20px 60px; }
+    .intro-grid,
+    .risk-cards,
+    .conselhos-grid,
+    .tedio-grid,
+    .ferramentas-grid,
+    .conversa-grid,
+    .recursos-list { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+  }
+
+  /* FADE IN */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner > * {
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.55s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="shield">🛡</div>
+    Internet mais segura
+  </a>
+  <ul class="nav-links">
+    <li><a href="#riscos">Riscos</a></li>
+    <li><a href="#sinais">Sinais de Alerta</a></li>
+    <li><a href="#conselhos">O Que Fazer</a></li>
+    <li><a href="#tedio">Tédio</a></li>
+    <li><a href="#ferramentas">Ferramentas</a></li>
+    <li><a href="#recursos">Recursos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Guia para Pais e Encarregados de Educação</div>
+    <h1>A internet é uma<br>oportunidade. <em>E também<br>um risco.</em></h1>
+    <p>Os seus filhos crescem num mundo digital. Compreender os riscos é o primeiro passo para os proteger — sem cortar o acesso, mas com critério e diálogo.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">93%</span>
+        <span class="stat-label">das crianças portuguesas usam a internet regularmente</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">8h</span>
+        <span class="stat-label">média diária de ecrã em adolescentes portugueses</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">1 em 3</span>
+        <span class="stat-label">já foi exposta a conteúdo inapropriado online</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="intro-section" id="intro">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <div class="section-label">Ponto de Partida</div>
+        <h2>Porquê este guia?</h2>
+        <p>A internet não é boa nem má — é uma ferramenta. Mas para crianças e adolescentes, <strong>o cérebro ainda está em formação</strong>, o que os torna mais vulneráveis a certos riscos que os adultos conseguem gerir melhor.</p>
+        <p>Este guia não tem por objetivo assustar. Tem por objetivo <strong>informar com rigor</strong>: o que acontece, como reconhecer sinais de problema, e como agir.</p>
+        <p>Proibir o acesso à internet raramente funciona e pode até isolar o seu filho. O caminho mais eficaz passa <strong>pela presença, o diálogo e regras claras</strong> — e por saber o que procurar.</p>
+      </div>
+      <div class="intro-callout">
+        <blockquote>A melhor proteção que um pai pode dar ao filho no mundo digital não é o bloqueio — é a confiança de que pode falar quando algo corre mal.</blockquote>
+        <cite>Internet Watch Foundation</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISCOS -->
+<section class="risks-section" id="riscos">
+  <div class="section-inner">
+    <div class="section-label">Áreas de Risco</div>
+    <h2>Os principais perigos online</h2>
+    <p class="section-intro">Conhecer cada risco em detalhe é essencial para saber o que vigiar e como abordar o assunto com os seus filhos.</p>
+
+    <div class="risk-cards">
+
+      <!-- JOGOS -->
+      <div class="risk-card warning">
+        <div class="risk-label">Moderado / Grave</div>
+        <div class="risk-icon">🎮</div>
+        <h3>Jogos Online</h3>
+        <p>Os jogos modernos são desenhados por equipas de psicólogos comportamentais para maximizar o tempo de jogo. Incluem mecânicas de recompensa variável — o mesmo mecanismo das slot machines.</p>
+        <ul class="risk-signs">
+          <li>Microtransações e "loot boxes" podem gerar gastos significativos, muitas vezes sem o filho perceber o valor real do dinheiro</li>
+          <li>Chats integrados expõem crianças a adultos desconhecidos sem filtro</li>
+          <li>Dependência: o jogo passa a ser prioritário em relação a escola, sono e relações sociais</li>
+          <li>Cyberbullying entre jogadores é muito frequente, especialmente em jogos competitivos</li>
+        </ul>
+      </div>
+
+      <!-- CHATS E REDES SOCIAIS -->
+      <div class="risk-card warning">
+        <div class="risk-label">Moderado / Grave</div>
+        <div class="risk-icon">💬</div>
+        <h3>Chats e Redes Sociais</h3>
+        <p>Instagram, TikTok, Snapchat, Discord — são plataformas desenhadas para prender a atenção. Para adolescentes, a validação social online pode tornar-se obsessiva e prejudicial.</p>
+        <ul class="risk-signs">
+          <li>Comparação social constante ligada a problemas de autoestima e ansiedade</li>
+          <li>Exposição a ideais de corpo, estilo de vida e sucesso irrealistas</li>
+          <li>Contacto com desconhecidos em grupos ou DMs sem supervisão</li>
+          <li>Partilha de informação pessoal (morada, escola, rotinas) de forma inconsciente</li>
+        </ul>
+      </div>
+
+      <!-- CYBERBULLYING -->
+      <div class="risk-card danger">
+        <div class="risk-label">Grave</div>
+        <div class="risk-icon">⚠️</div>
+        <h3>Cyberbullying</h3>
+        <p>Diferente do bullying presencial, o cyberbullying não tem horário, não tem geografa e pode ser anónimo. A vítima não tem refúgio — o telefone está sempre com ela.</p>
+        <ul class="risk-signs">
+          <li>Partilha de imagens ou vídeos humilhantes em grupos de turma ou escola</li>
+          <li>Exclusão deliberada de grupos e conversas coletivas</li>
+          <li>Criação de perfis falsos para difamar ou ridicularizar a vítima</li>
+          <li>Impacto severo na saúde mental: ansiedade, depressão, recusa escolar</li>
+        </ul>
+      </div>
+
+      <!-- GROOMING / CONTEÚDO IMPRÓPRIO -->
+      <div class="risk-card danger">
+        <div class="risk-label">Muito Grave</div>
+        <div class="risk-icon">🚨</div>
+        <h3>Grooming e Conteúdo Impróprio</h3>
+        <p>O grooming é o processo pelo qual um adulto constrói deliberadamente uma relação de confiança com uma criança com intenções de abuso. Começa sempre de forma aparentemente inocente.</p>
+        <ul class="risk-signs">
+          <li>Adultos que fingem ser crianças em jogos, Roblox, Discord, TikTok</li>
+          <li>Pedidos de fotografias ou conversas "privadas" progressivamente mais íntimas</li>
+          <li>Isolamento da criança dos pais e amigos ("eles não te compreendem como eu")</li>
+          <li>Exposição a conteúdo sexual não solicitado (CSAM) ou acesso acidental a pornografia</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SINAIS DE ALERTA -->
+<section class="sinais-section" id="sinais">
+  <div class="section-inner">
+    <div class="section-label">Comportamento</div>
+    <h2>Sinais de alerta a vigiar</h2>
+    <p class="section-intro">Muitas vezes, as crianças não dizem que algo está errado — mas o comportamento muda. Estes são os sinais que não devem ser ignorados.</p>
+
+    <table class="sinais-table">
+      <thead>
+        <tr>
+          <th>Comportamento</th>
+          <th>Possível indicação</th>
+          <th>Urgência</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Esconde o ecrã ou muda de janela quando se aproxima</td>
+          <td>Conversas ou conteúdo que sabe que não aprovaria</td>
+          <td><span class="badge badge-orange">Médio</span></td>
+        </tr>
+        <tr>
+          <td>Fica irritado ou agressivo quando é pedido para parar de jogar/usar o telemóvel</td>
+          <td>Dependência comportamental de ecrãs ou jogos</td>
+          <td><span class="badge badge-orange">Médio</span></td>
+        </tr>
+        <tr>
+          <td>Recebe mensagens à noite e responde em segredo</td>
+          <td>Contacto com desconhecidos; possível grooming</td>
+          <td><span class="badge badge-red">Alto</span></td>
+        </tr>
+        <tr>
+          <td>Fica ansioso, triste ou agitado após usar o telemóvel</td>
+          <td>Cyberbullying, comparação social ou conteúdo perturbador</td>
+          <td><span class="badge badge-orange">Médio</span></td>
+        </tr>
+        <tr>
+          <td>Recusa ir à escola ou menciona problemas com colegas online</td>
+          <td>Cyberbullying com origem na turma ou escola</td>
+          <td><span class="badge badge-red">Alto</span></td>
+        </tr>
+        <tr>
+          <td>Aparecem cobranças desconhecidas no cartão de crédito</td>
+          <td>Microtransações em jogos; possíveis esquemas online</td>
+          <td><span class="badge badge-orange">Médio</span></td>
+        </tr>
+        <tr>
+          <td>Fala de um "amigo" que os pais nunca conheceram e que só existe online</td>
+          <td>Contacto com adulto a fazer-se passar por criança (grooming)</td>
+          <td><span class="badge badge-red">Alto</span></td>
+        </tr>
+        <tr>
+          <td>Deixou de falar com amigos do mundo real, isola-se</td>
+          <td>Substituição de relações presenciais por virtuais; dependência</td>
+          <td><span class="badge badge-orange">Médio</span></td>
+        </tr>
+        <tr>
+          <td>Acorda de madrugada para jogar ou usar o telemóvel</td>
+          <td>Dependência grave; privação de sono crónica</td>
+          <td><span class="badge badge-red">Alto</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CONSELHOS -->
+<section class="conselhos-section" id="conselhos">
+  <div class="section-inner">
+    <div class="section-label">Ação</div>
+    <h2>O que pode fazer enquanto pai</h2>
+    <p class="section-intro">Não existe fórmula perfeita, mas há práticas com base psicológica que funcionam — e que não dependem de saber muito de tecnologia.</p>
+
+    <div class="conselhos-grid">
+      <div class="conselho-card">
+        <div class="conselho-num">01</div>
+        <h3>Esteja presente — online e offline</h3>
+        <p>Privilegie a escuta ativa. Mantenha rotinas e rituais familiares. Participe nas atividades dos seus filhos — incluindo as digitais. Saber o que o filho joga ou vê é tão importante como saber com quem anda na escola.</p>
+      </div>
+      <div class="conselho-card">
+        <div class="conselho-num">02</div>
+        <h3>Eduque para o digital com diálogo</h3>
+        <p>Converse aberta e regularmente sobre riscos, privacidade e valores. Não como um sermão — como uma troca. O objetivo é que o seu filho desenvolva capacidade crítica, não apenas obedeça regras que não compreende.</p>
+      </div>
+      <div class="conselho-card">
+        <div class="conselho-num">03</div>
+        <h3>Defina regras claras e consistentes</h3>
+        <p>Estabeleça limites de tempo, finalidades, horários e locais para o uso dos ecrãs. O critério prático: <strong>se o tempo definido não interfere com a rotina saudável da criança</strong> — sono, escola, relações, exercício — estará bem calibrado. Regras consistentes valem mais do que punições reativas.</p>
+      </div>
+      <div class="conselho-card">
+        <div class="conselho-num">04</div>
+        <h3>Explique o controlo parental como na vida real</h3>
+        <p>O controlo parental não é punição nem desconfiança — é equivalente a não deixar uma criança de 7 anos atravessar uma avenida sozinha. Quando explicado assim, os filhos aceitam melhor os limites e percebem que existem por cuidado, não por castigo.</p>
+      </div>
+      <div class="conselho-card">
+        <div class="conselho-num">05</div>
+        <h3>Crie um ambiente de confiança</h3>
+        <p>A criança que sabe que pode contar ao pai sem ser castigada é a que vai pedir ajuda quando precisar. Se a primeira reação for sempre a punição, a criança aprende a esconder — não a pedir ajuda. Manter a calma perante partilhas difíceis é a base de tudo.</p>
+      </div>
+      <div class="conselho-card">
+        <div class="conselho-num">06</div>
+        <h3>Seja o exemplo</h3>
+        <p>Os filhos não são muito bons a ouvir os pais — mas nunca falham a imitá-los. Se pede ao filho para largar o telemóvel ao jantar, faça o mesmo. O seu padrão de uso de ecrãs define, de forma silenciosa, o padrão familiar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCAR PARA O TÉDIO -->
+<section class="tedio-section" id="tedio">
+  <div class="section-inner">
+    <div class="tedio-grid">
+      <div class="tedio-text">
+        <div class="section-label">Perspetiva Psicológica</div>
+        <h2>Educar para o tédio</h2>
+        <p>Quando a criança diz "não tenho nada para fazer", o impulso imediato é dar-lhe um ecrã. Mas o tédio tem um papel no desenvolvimento que não deve ser eliminado.</p>
+        <p>É nos momentos de tédio que a criança desenvolve <strong>paciência, tolerância à frustração e capacidade de resolução de problemas</strong> — competências que nenhuma app ensina.</p>
+        <p>O objetivo não é proibir ecrãs — é garantir que existem alternativas reais e atrativas. E que o pai ou a mãe são, sempre que possível, uma dessas alternativas.</p>
+      </div>
+      <div class="tedio-box">
+        <div class="tedio-box-title">💡 O Pote do Tédio</div>
+        <p class="tedio-box-intro">Uma ideia simples com impacto real: construam em família uma lista de atividades para os momentos sem ecrã.</p>
+        <div class="tedio-alternativas">
+          <div class="alt-item">🏃 Desporto ou brincadeira ao ar livre</div>
+          <div class="alt-item">📚 Leitura (deixe-os escolher o livro)</div>
+          <div class="alt-item">♟️ Jogos de tabuleiro em família</div>
+          <div class="alt-item">🎨 Desenho, pintura, construção</div>
+          <div class="alt-item">🐕 Cuidar de um animal</div>
+          <div class="alt-item">🍳 Participar em tarefas de casa</div>
+        </div>
+        <p class="tedio-note">Escrevam as ideias em papéis e coloquem num frasco. Quando o filho disser "não tenho nada para fazer", é ele que tira um papel — não o pai que decide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FERRAMENTAS -->
+<section class="ferramentas-section" id="ferramentas">
+  <div class="section-inner">
+    <div class="section-label">Ferramentas</div>
+    <h2>Controlos parentais essenciais</h2>
+    <p class="section-intro">Estas ferramentas não substituem a conversa, mas são uma camada adicional de proteção que todos os pais devem conhecer.</p>
+
+    <div class="ferramentas-grid">
+      <div class="ferramenta-card">
+        <div class="plataforma">iOS / iPhone</div>
+        <h3>Screen Time (Tempo de Ecrã)</h3>
+        <p>Integrado no iPhone e iPad. Permite limitar horários de uso, bloquear apps específicas, restringir compras e monitorizar o tempo em cada aplicação. Ativação: Definições → Tempo de Ecrã.</p>
+      </div>
+      <div class="ferramenta-card">
+        <div class="plataforma">Android</div>
+        <h3>Google Family Link</h3>
+        <p>App gratuita da Google para supervisionar dispositivos Android de crianças. Permite aprovar apps antes da instalação, ver localização, definir limites de ecrã e bloquear o dispositivo remotamente.</p>
+      </div>
+      <div class="ferramenta-card">
+        <div class="plataforma">PlayStation</div>
+        <h3>PS Family Management</h3>
+        <p>Controla o tempo de jogo, restringe comunicações com desconhecidos, bloqueia compras na PS Store e filtra conteúdo por classificação etária (PEGI). Acessível pelo site da PlayStation.</p>
+      </div>
+      <div class="ferramenta-card">
+        <div class="plataforma">Xbox</div>
+        <h3>Xbox Family Settings</h3>
+        <p>App da Microsoft para gerir contas de crianças na Xbox. Inclui limites de tempo, aprovação de jogos, filtros de conteúdo e relatórios de atividade semanal enviados por email.</p>
+      </div>
+      <div class="ferramenta-card">
+        <div class="plataforma">Rede doméstica</div>
+        <h3>DNS Filtragem (ex: OpenDNS)</h3>
+        <p>Configurado no router de casa, bloqueia categorias de sites inapropriados em todos os dispositivos da rede, incluindo computadores e consolas. Funciona mesmo quando a criança usa outro browser.</p>
+      </div>
+      <div class="ferramenta-card">
+        <div class="plataforma">YouTube</div>
+        <h3>YouTube Kids</h3>
+        <p>Versão separada do YouTube com conteúdo curado para crianças. Permite filtrar por faixa etária e bloquear canais específicos. Recomendado para crianças até aos 10 anos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO CONVERSAR -->
+<section class="conversa-section" id="conversa">
+  <div class="section-inner">
+    <div class="conversa-grid">
+      <div class="conversa-intro">
+        <div class="section-label">Comunicação</div>
+        <h2>Como abordar o assunto com os seus filhos</h2>
+        <p>O tom da conversa importa tanto como o conteúdo. Uma abordagem acusatória fecha o diálogo; uma abordagem curiosa e empática abre-o.</p>
+        <p><strong>Não comece com "proibições".</strong> Comece com perguntas. "O que é que jogas online?" "Quem são os teus amigos no Discord?" "Já te aconteceu alguma coisa online que te tenha chateado?"</p>
+        <p>Se a criança partilhar algo preocupante, a resposta mais importante é <strong>manter a calma</strong>. Uma reação exagerada vai ensiná-la a não partilhar na próxima vez.</p>
+      </div>
+      <div class="dialogue-box">
+        <div class="msg parent">
+          <div class="msg-label">✓ Abordagem eficaz</div>
+          "Hoje queria perceber melhor o que andas a jogar. Podes mostrar-me como funciona?"
+        </div>
+        <div class="msg child">
+          <div class="msg-label">Resposta típica</div>
+          "Claro! Este jogo é assim... e posso falar com jogadores de outros países..."
+        </div>
+        <div class="msg parent">
+          <div class="msg-label">✓ Abordagem eficaz</div>
+          "Interessante. E conheces pessoalmente essas pessoas? O que fazem quando alguém te diz algo que não gostas?"
+        </div>
+        <div style="height:12px;"></div>
+        <div class="msg parent" style="background: rgba(192,57,43,0.12); color: var(--red); border: 1px solid rgba(192,57,43,0.2);">
+          <div class="msg-label" style="color: var(--red);">✗ Evitar</div>
+          "Estás sempre nesse telemóvel! Isso são tudo desconhecidos perigosos. Acabou-se!"
+        </div>
+        <div class="msg child" style="background: rgba(192,57,43,0.05); border: 1px solid rgba(192,57,43,0.15);">
+          <div class="msg-label">Resposta típica</div>
+          [silêncio] — a criança aprende a esconder, não a pedir ajuda.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS -->
+<section class="recursos-section" id="recursos">
+  <div class="section-inner">
+    <div class="section-label">Onde pedir ajuda</div>
+    <h2>Recursos em Portugal</h2>
+    <p class="section-intro">Se identificar algum dos riscos descritos neste guia, não está sozinho. Existem entidades em Portugal preparadas para ajudar.</p>
+
+    <div class="recursos-list">
+      <div class="recurso-item">
+        <div>
+          <h4>Internet Segura Portugal</h4>
+          <p>Linha de apoio nacional para situações de risco online para menores. Linha gratuita e confidencial.</p>
+        </div>
+        <a href="https://www.internetsegura.pt" target="_blank" class="recurso-link">Visitar</a>
+      </div>
+      <div class="recurso-item">
+        <div>
+          <h4>Linha de Emergência Criança — 116 000</h4>
+          <p>Para situações urgentes envolvendo crianças em risco. Disponível 24 horas, gratuita, em toda a Europa.</p>
+        </div>
+        <a href="tel:116000" class="recurso-link">116 000</a>
+      </div>
+      <div class="recurso-item">
+        <div>
+          <h4>APAV — Apoio a Vítimas</h4>
+          <p>Apoio a vítimas de crimes, incluindo cybercrime contra menores e abuso online.</p>
+        </div>
+        <a href="https://www.apav.pt" target="_blank" class="recurso-link">Visitar</a>
+      </div>
+      <div class="recurso-item">
+        <div>
+          <h4>Escola Segura — GNR / PSP</h4>
+          <p>Programa nacional de segurança nas escolas com ações de sensibilização sobre segurança online.</p>
+        </div>
+        <a href="https://www.gnr.pt/escolaSegura.aspx" target="_blank" class="recurso-link">Visitar</a>
+      </div>
+      <div class="recurso-item">
+        <div>
+          <h4>CNPDPCJ</h4>
+          <p>Comissão Nacional de Promoção dos Direitos e Proteção das Crianças e Jovens — apoio institucional e orientação.</p>
+        </div>
+        <a href="https://www.cnpdpcj.gov.pt" target="_blank" class="recurso-link">Visitar</a>
+      </div>
+      <div class="recurso-item">
+        <div>
+          <h4>Be Safe Online (UE)</h4>
+          <p>Plataforma europeia com materiais educativos para pais e crianças sobre segurança digital.</p>
+        </div>
+        <a href="https://www.betterinternetforkids.eu" target="_blank" class="recurso-link">Visitar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Internet mais segura</strong> — Guia informativo para pais e encarregados de educação portugueses</p>
+  <p>Este site não recolhe dados pessoais, não vende produtos e não tem fins comerciais.</p>
+  <p style="margin-top:16px; font-size:0.78rem;">Em caso de perigo imediato, contacte as autoridades: <strong>112</strong></p>
+</footer>
+
+</body>
+</html>

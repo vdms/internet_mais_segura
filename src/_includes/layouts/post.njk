@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+---
+
+{% block content %}
+<article class="post">
+  <div class="section-inner">
+    <div class="blog-content">
+      <header class="post-header">
+        <h1>{{ title }}</h1>
+        
+        <div class="post-meta">
+          <span class="meta-item">
+            <span aria-label="Data de publicação">📅</span>
+            <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+          </span>
+          
+          {% if author %}
+          <span class="meta-item">
+            <span aria-label="Autor">✍️</span>
+            {{ author }}
+          </span>
+          {% endif %}
+          
+          {% if readingTime %}
+          <span class="meta-item">
+            <span aria-label="Tempo de leitura">⏱️</span>
+            {{ readingTime }} min de leitura
+          </span>
+          {% endif %}
+        </div>
+        
+        {% if tags %}
+        <div class="post-tags">
+          {% for tag in tags %}
+            {% if tag != "posts" %}
+            <a href="/blog/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </header>
+      
+      {% if featuredImage %}
+      {% featuredImage featuredImage, featuredImageAlt or title, photographer, photographerUsername %}
+      {% endif %}
+      
+      <div class="post-content">
+        {{ content | safe }}
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-share">
+          {% include "components/social-share.njk" %}
+        </div>
+        
+        {% if collections.posts %}
+        <nav class="post-navigation" aria-label="Navegação entre posts">
+          {% set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+          {% set nextPost = collections.posts | getNextCollectionItem(page) %}
+          
+          {% if previousPost %}
+          <a href="{{ previousPost.url }}" class="nav-item prev">
+            <div class="nav-label">Post Anterior</div>
+            <div class="nav-title">{{ previousPost.data.title }}</div>
+          </a>
+          {% endif %}
+          
+          {% if nextPost %}
+          <a href="{{ nextPost.url }}" class="nav-item next">
+            <div class="nav-label">Próximo Post</div>
+            <div class="nav-title">{{ nextPost.data.title }}</div>
+          </a>
+          {% endif %}
+        </nav>
+        {% endif %}
+      </footer>
+    </div>
+  </div>
+</article>
+{% endblock %}

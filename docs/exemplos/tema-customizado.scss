@@ -1,0 +1,300 @@
+// =========================================
+// EXEMPLO: TEMA CUSTOMIZADO
+// =========================================
+// Este arquivo demonstra como usar as variáveis CSS locais
+// para criar um tema customizado sem modificar os componentes
+
+// Exemplo 1: Tema de Alto Contraste
+// =========================================
+.theme-high-contrast {
+  // Navigation com cores de alto contraste
+  nav {
+    --nav-bg: #000000;
+    --nav-text: #FFFFFF;
+    --nav-link-color: #FFFF00;
+    --nav-link-hover: #00FFFF;
+  }
+  
+  // Footer com cores de alto contraste
+  footer {
+    --footer-bg: #000000;
+    --footer-text: #FFFFFF;
+    --footer-link: #FFFF00;
+  }
+  
+  // Cards com bordas mais visíveis
+  .card, .risk-card, .advice-card {
+    --card-bg: #FFFFFF;
+    --card-border: #000000;
+    --card-text: #000000;
+  }
+  
+  // Botões mais visíveis
+  .btn-primary {
+    --btn-primary-bg: #000000;
+    --btn-primary-bg-hover: #333333;
+  }
+}
+
+// Exemplo 2: Tema Noturno Suave
+// =========================================
+.theme-night-owl {
+  // Cores base mais suaves que o dark mode padrão
+  nav {
+    --nav-bg: #2d3748;
+    --nav-link-color: #cbd5e0;
+    --nav-link-hover: #90cdf4;
+  }
+  
+  footer {
+    --footer-bg: #2d3748;
+    --footer-text: #cbd5e0;
+    --footer-link: #90cdf4;
+  }
+  
+  .hero {
+    --hero-bg: #1a202c;
+    --hero-text: #f7fafc;
+    --hero-accent: #63b3ed;
+  }
+  
+  .card {
+    --card-bg: #2d3748;
+    --card-border: #4a5568;
+    --card-text: #e2e8f0;
+    --card-heading: #f7fafc;
+  }
+}
+
+// Exemplo 3: Tema de Segurança (Vermelho/Amarelo)
+// =========================================
+.theme-safety {
+  nav {
+    --nav-bg: #C53030;  // Vermelho forte
+    --nav-link-hover: #FBD38D;  // Amarelo suave
+  }
+  
+  .hero {
+    --hero-bg: #C53030;
+    --hero-accent: #FBD38D;
+    --hero-gradient-from: #ED8936;
+    --hero-gradient-to: #F6AD55;
+  }
+  
+  .btn-primary {
+    --btn-primary-bg: #ED8936;
+    --btn-primary-bg-hover: #DD6B20;
+  }
+  
+  .section-label {
+    --section-label-color: #C53030;
+    --section-label-border: #C53030;
+  }
+}
+
+// Exemplo 4: Tema Minimalista (Monocromático)
+// =========================================
+.theme-minimal {
+  nav {
+    --nav-bg: #f8f9fa;
+    --nav-text: #212529;
+    --nav-link-color: #495057;
+    --nav-link-hover: #212529;
+    --nav-button-hover-bg: rgba(0,0,0,0.05);
+  }
+  
+  footer {
+    --footer-bg: #212529;
+    --footer-text: #adb5bd;
+    --footer-link: #f8f9fa;
+  }
+  
+  .hero {
+    --hero-bg: #343a40;
+    --hero-text: #f8f9fa;
+    --hero-accent: #6c757d;
+  }
+  
+  .card {
+    --card-bg: #ffffff;
+    --card-border: #dee2e6;
+    --card-heading: #212529;
+    --card-accent-bg: #495057;
+  }
+  
+  .btn-primary {
+    --btn-primary-bg: #495057;
+    --btn-primary-bg-hover: #343a40;
+  }
+}
+
+// Exemplo 5: Override para Página Específica
+// =========================================
+.page-emergency {
+  // Navigation urgente
+  nav {
+    --nav-bg: var(--red);
+    --nav-link-hover: #ffffff;
+  }
+  
+  // Hero chamativo
+  .hero {
+    --hero-bg: var(--red);
+    --hero-tag-bg: rgba(255, 255, 255, 0.2);
+    --hero-tag-border: rgba(255, 255, 255, 0.5);
+  }
+  
+  // Cards de alerta
+  .card {
+    --card-border: var(--red);
+    --card-accent-bg: var(--red);
+  }
+  
+  // Botões de ação imediata
+  .btn-primary {
+    --btn-primary-bg: #dc143c;  // Crimson
+    --btn-primary-bg-hover: #b22222;  // FireBrick
+  }
+}
+
+// Exemplo 6: Customizações Inline (HTML)
+// =========================================
+/*
+Você também pode usar variáveis CSS inline no HTML:
+
+<!-- Card com cores customizadas -->
+<div class="card" 
+     style="--card-bg: #e3f2fd; 
+            --card-border: #1976d2; 
+            --card-heading: #0d47a1;">
+  <h3>Card Azul Customizado</h3>
+  <p>Este card tem cores únicas.</p>
+</div>
+
+<!-- Navigation transparente para landing page -->
+<nav style="--nav-bg: transparent; 
+            --nav-link-color: white;">
+  <!-- Conteúdo -->
+</nav>
+
+<!-- Botão de destaque -->
+<button class="btn btn-primary" 
+        style="--btn-primary-bg: linear-gradient(90deg, #667eea 0%, #764ba2 100%);">
+  Botão Gradiente
+</button>
+*/
+
+// Exemplo 7: Animação de Tema
+// =========================================
+/* Transição suave entre temas */
+nav,
+footer,
+.hero,
+.card,
+.btn-primary {
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+// Exemplo 8: Media Queries com Temas
+// =========================================
+/* Tema diferente em mobile */
+@media (max-width: 768px) {
+  .mobile-friendly {
+    nav {
+      --nav-bg: var(--white);
+      --nav-text: var(--navy);
+      --nav-link-color: var(--text);
+    }
+    
+    .hero {
+      --hero-bg: var(--cream);
+      --hero-text: var(--navy);
+    }
+  }
+}
+
+// Exemplo 9: Tema com Preferência do Sistema
+// =========================================
+/* Respeita preferência de contraste do SO */
+@media (prefers-contrast: high) {
+  :root {
+    nav {
+      --nav-bg: #000000;
+      --nav-text: #FFFFFF;
+    }
+    
+    .card {
+      --card-border: #000000;
+      --card-bg: #FFFFFF;
+    }
+  }
+}
+
+// Exemplo 10: Componente com Estado
+// =========================================
+.notification {
+  // Variáveis base herdadas de card
+  --card-bg: var(--cream);
+  --card-border: var(--border);
+  --card-text: var(--text);
+  
+  &.notification-success {
+    --card-bg: #d4edda;
+    --card-border: var(--green);
+    --card-text: #155724;
+  }
+  
+  &.notification-warning {
+    --card-bg: #fff3cd;
+    --card-border: var(--accent);
+    --card-text: #856404;
+  }
+  
+  &.notification-error {
+    --card-bg: #f8d7da;
+    --card-border: var(--red);
+    --card-text: #721c24;
+  }
+  
+  &.notification-info {
+    --card-bg: #d1ecf1;
+    --card-border: var(--blue);
+    --card-text: #0c5460;
+  }
+}
+
+// =========================================
+// COMO USAR ESTES EXEMPLOS
+// =========================================
+/*
+
+1. ADICIONAR CLASSE NO HTML:
+   <body class="theme-high-contrast">
+
+2. CONFIGURAR VIA JAVASCRIPT:
+   document.body.classList.add('theme-night-owl');
+
+3. PERMITIR USUÁRIO ESCOLHER:
+   <select id="theme-selector">
+     <option value="">Padrão</option>
+     <option value="theme-high-contrast">Alto Contraste</option>
+     <option value="theme-night-owl">Noturno</option>
+     <option value="theme-minimal">Minimalista</option>
+   </select>
+   
+   document.getElementById('theme-selector').addEventListener('change', (e) => {
+     document.body.className = e.target.value;
+   });
+
+4. SALVAR PREFERÊNCIA:
+   localStorage.setItem('theme', 'theme-night-owl');
+   document.body.classList.add(localStorage.getItem('theme'));
+
+5. TESTE NO DEVTOOLS:
+   - Inspecionar elemento
+   - Na aba "Computed" ver valores das variáveis
+   - Modificar valores para testar
+*/

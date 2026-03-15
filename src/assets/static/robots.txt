@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vicentesarmento.github.io/internet_mais_segura/sitemap.xml

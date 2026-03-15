@@ -1,0 +1,101 @@
+// =========================================
+// COLOR SYSTEM
+// =========================================
+
+:root {
+    // Brand Colors
+    --navy: #0d1f3c;
+    --navy-mid: #162d54;
+    --blue: #1a4a8a;
+    --accent: #d4813a;
+    --accent-light: #e8a060;
+    --pink-orchid: #e3a9c9ff;
+    --sweet-salmon: #e98578ff;
+    --ocean-blue: #3c89b8ff;
+    --ocean-blue-light: rgba(60, 137, 184, 0.186);
+    --ocean-blue-dark: rgb(13, 62, 93);
+    --gold: #fad521ff;
+
+    // Neutral Colors
+    --white: #ffffffff;
+    --parchment: hsl(30, 31%, 95%);
+    --parchment-dark: hsl(34, 32%, 93%);
+    --cream: #f8f5efff;
+    --text: #1a1a2eff;
+    --text-light: #4a5568ff;
+    --border: #ddd8ccff;
+
+    // Semantic Colors
+    --red: #c0392bff;
+    --green: #1e7a5eff;
+}
+
+
+
+
+// =========================================
+// TYPOGRAPHY
+// =========================================
+
+$font-display: 'Playfair Display',
+serif;
+$font-body: 'Source Sans 3',
+sans-serif;
+
+$font-size-base: 17px;
+$line-height-base: 1.7;
+
+// =========================================
+// SPACING
+// =========================================
+
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 40px;
+$spacing-xl: 64px;
+$spacing-2xl: 100px;
+
+// =========================================
+// BREAKPOINTS
+// =========================================
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1440px;
+
+// =========================================
+// LAYOUT
+// =========================================
+
+$max-width-content: 860px;
+$max-width-wide: 1200px;
+$nav-height: 64px;
+
+// =========================================
+// TRANSITIONS
+// =========================================
+
+$transition-fast: 0.2s ease;
+$transition-medium: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// =========================================
+// SHADOWS
+// =========================================
+
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+$shadow-nav: 0 2px 20px rgba(0, 0, 0, 0.3);
+
+// =========================================
+// BORDER RADIUS
+// =========================================
+
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 8px;
+$radius-full: 9999px;

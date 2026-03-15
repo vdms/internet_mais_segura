@@ -1,0 +1,201 @@
+// =========================================
+// RESET & BASE STYLES
+// =========================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: $font-size-base;
+}
+
+body {
+  // Variáveis locais do componente
+  --body-bg: var(--cream);
+  --body-text: var(--text);
+  
+  font-family: $font-body;
+  background: var(--body-bg);
+  color: var(--body-text);
+  line-height: $line-height-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// =========================================
+// TYPOGRAPHY
+// =========================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  // Variáveis locais do componente
+  --link-color: var(--accent);
+  --link-hover: var(--accent-light);
+  
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: var(--link-hover);
+  }
+  
+  @include focus-ring;
+}
+
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+ul, ol {
+  margin-left: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+blockquote {
+  // Variáveis locais do componente
+  --blockquote-border: var(--accent);
+  --blockquote-bg: rgba(212, 129, 58, 0.05);
+  --blockquote-text: var(--text-light);
+  
+  margin: $spacing-lg 0;
+  padding: $spacing-md $spacing-lg;
+  border-left: 4px solid var(--blockquote-border);
+  background: var(--blockquote-bg);
+  font-style: italic;
+  color: var(--blockquote-text);
+}
+
+code {
+  // Variáveis locais do componente
+  --code-bg: rgba(0, 0, 0, 0.05);
+  
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: $radius-sm;
+}
+
+pre {
+  // Variáveis locais do componente
+  --pre-bg: var(--navy);
+  --pre-text: var(--cream);
+  
+  background: var(--pre-bg);
+  color: var(--pre-text);
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  overflow-x: auto;
+  margin-bottom: $spacing-md;
+  
+  code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+}
+
+hr {
+  // Variáveis locais do componente
+  --hr-color: var(--border);
+  
+  border: none;
+  border-top: 1px solid var(--hr-color);
+  margin: $spacing-lg 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// =========================================
+// ACCESSIBILITY
+// =========================================
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.skip-link {
+  // Variáveis locais do componente
+  --skip-link-bg: var(--navy);
+  --skip-link-text: var(--white);
+  
+  @include visually-hidden;
+  
+  &:focus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: auto;
+    height: auto;
+    padding: $spacing-sm $spacing-md;
+    background: var(--skip-link-bg);
+    color: var(--skip-link-text);
+    clip: auto;
+  }
+}
+
+// =========================================
+// SELECTION
+// =========================================
+
+:root {
+  // Variáveis para seleção de texto
+  --selection-bg: var(--accent);
+  --selection-text: var(--white);
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+::-moz-selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}

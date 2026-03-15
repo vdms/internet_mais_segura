@@ -1,0 +1,174 @@
+// =========================================
+// HERO SECTION
+// =========================================
+
+.hero {
+  // Variáveis locais do componente
+  --hero-bg: var(--parchment);
+  --hero-bg-dark: var(--parchment-dark);
+  --hero-text: var(--ocean-blue);
+  --hero-text-dim: var(--text-light);
+  --hero-accent: var(--sweet-salmon);
+  --hero-tag-bg: var(--ocean-blue-light);
+  --hero-tag-border: var(--ocean-blue);
+  --hero-tag-text: var(--ocean-blue-dark);
+  --hero-gradient-from: var(--accent);
+  --hero-gradient-to: var(--accent-light);
+  
+  // Variáveis dos stats
+  --stat-bg: var(--white);
+  --stat-border: var(--border);
+  --stat-number: var(--sweet-salmon);
+  --stat-label: var(--text-light);
+  
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  padding: $spacing-2xl $spacing-lg ($spacing-2xl - 20px);
+  position: relative;
+  overflow: hidden;
+  
+  @include mobile {
+    padding: $spacing-xl $spacing-md ($spacing-xl - 20px);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-image: linear-gradient(0deg, var(--hero-bg) 50%, var(--hero-bg-dark) 50%);
+    background-size: 10px 10px;
+    pointer-events: none;
+    z-index: 1;
+    
+    @include mobile {
+      width: 400px;
+      height: 400px;
+      top: -50px;
+      right: -50px;
+    }
+  }
+  
+  // Accent border bottom
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--hero-gradient-from),
+      var(--hero-gradient-to),
+      var(--hero-gradient-from)
+    );
+  }
+  
+}
+
+.hero-inner {
+  @include container;
+
+  left: 200px;
+  position: relative;
+  width: $max-width-content;
+  z-index: 2;
+  
+  > *:not(:last-child) {
+    animation: fadeUp 0.6s ease backwards;
+    z-index: 2;
+  }
+  
+  > *:nth-child(1) { animation-delay: 0.1s; }
+  > *:nth-child(2) { animation-delay: 0.2s; }
+  > *:nth-child(3) { animation-delay: 0.3s; }
+  > *:nth-child(4) { animation-delay: 0.4s; }
+
+  img {
+    position: absolute;
+    bottom: -150px;
+    left: 0;
+    width: 800px;
+    height: auto;
+    transform: translateX(-90%);
+    z-index: 1;
+  }
+
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--hero-tag-bg);
+  border: 1px solid var(--hero-tag-border);
+  color: var(--hero-tag-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  text-transform: uppercase;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-md;
+}
+
+.hero h1 {
+  font-family: $font-display;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: $spacing-md;
+  letter-spacing: -0.01em;
+  
+  em {
+    font-style: normal;
+    color: var(--hero-accent);
+  }
+}
+
+.hero-lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
+  margin-bottom: $spacing-lg;
+  color: var(--hero-text-dim);
+  max-width: 700px;
+}
+
+// Hero stats (3 columns)
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+  }
+}
+
+.stat-item {
+  padding: $spacing-md;
+  background: var(--stat-bg);
+  border-radius: $radius-md;
+  border: 1px solid var(--stat-border);
+  
+  .stat-number {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--stat-number);
+    font-family: $font-display;
+    display: block;
+    margin-bottom: $spacing-xs;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--stat-label);
+    line-height: 1.4;
+  }
+
+}

@@ -1,0 +1,173 @@
+// =========================================
+// IMAGE STYLES
+// =========================================
+
+// Featured images in blog posts
+.featured-image {
+  // Variáveis locais do componente
+  --featured-image-bg: var(--border);
+  
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--featured-image-bg);
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  // Dark mode filter
+  [data-theme="dark"] & img {
+    filter: brightness(0.85);
+  }
+}
+
+// Figure with caption
+figure {
+  // Variáveis locais do componente
+  --figure-caption-color: var(--text-light);
+  
+  margin: 2rem 0;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+  
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--figure-caption-color);
+    font-style: italic;
+    text-align: center;
+  }
+}
+
+// Aspect ratio containers
+.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-21-9 {
+  aspect-ratio: 21 / 9;
+}
+
+// Image credit attribution (Unsplash)
+.image-credit {
+  // Variáveis locais do componente
+  --image-credit-color: var(--text-light);
+  --image-credit-hover: var(--accent);
+  
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  color: var(--image-credit-color);
+  
+  &-link {
+    color: var(--image-credit-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: var(--image-credit-hover);
+    }
+  }
+  
+  strong {
+    font-weight: 600;
+  }
+}
+
+// Image credit overlay (for backgrounds)
+.image-credit-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  backdrop-filter: blur(4px);
+  
+  a {
+    color: white;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Hero background with overlay
+.hero-with-image {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(13, 31, 60, 0.85) 0%,
+      rgba(26, 74, 138, 0.75) 100%
+    );
+    z-index: 1;
+  }
+  
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Background image sections
+.section-with-background {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  [data-theme="dark"] &::before {
+    opacity: 0.03;
+  }
+}
+
+// Lazy loading placeholder
+img[loading="lazy"] {
+  background: var(--border);
+}
+
+// Responsive images
+img {
+  max-width: 100%;
+  height: auto;
+}

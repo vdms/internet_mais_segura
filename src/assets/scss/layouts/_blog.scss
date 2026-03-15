@@ -1,0 +1,307 @@
+// =========================================
+// BLOG LAYOUTS
+// =========================================
+
+.blog-header {
+  // Variáveis locais do componente
+  --blog-header-bg: var(--navy);
+  --blog-header-text: var(--white);
+  --blog-header-text-dim: rgba(255, 255, 255, 0.85);
+  
+  background: var(--blog-header-bg);
+  color: var(--blog-header-text);
+  padding: $spacing-xl $spacing-lg;
+  text-align: center;
+  
+  h1 {
+    margin-bottom: $spacing-sm;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: var(--blog-header-text-dim);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-lg;
+  margin: $spacing-xl 0;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blog-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: $spacing-lg;
+  margin: $spacing-xl 0;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blog-content {
+  // Variáveis locais do componente
+  --blog-content-bg: var(--white);
+  --blog-content-border: var(--border);
+  
+  background: var(--blog-content-bg);
+  border: 1px solid var(--blog-content-border);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  
+  @include mobile {
+    padding: $spacing-md;
+  }
+}
+
+// Blog post page
+.post-header {
+  // Variáveis locais do componente
+  --post-header-border: var(--border);
+  --post-heading-color: var(--navy);
+  --post-meta-color: var(--text-light);
+  --post-tag-bg: var(--cream);
+  --post-tag-text: var(--text-light);
+  --post-tag-hover-bg: var(--accent);
+  --post-tag-hover-text: var(--white);
+  
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid var(--post-header-border);
+  
+  h1 {
+    margin-bottom: $spacing-md;
+    color: var(--post-heading-color);
+  }
+  
+  .post-meta {
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--post-meta-color);
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+    }
+  }
+  
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    margin-top: $spacing-sm;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 4px $spacing-sm;
+    background: var(--post-tag-bg);
+    border-radius: $radius-sm;
+    font-size: 0.8rem;
+    color: var(--post-tag-text);
+    text-decoration: none;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background: var(--post-tag-hover-bg);
+      color: var(--post-tag-hover-text);
+    }
+  }
+}
+
+.post-content {
+  // Variáveis locais do componente
+  --post-content-anchor: var(--accent);
+  --post-content-caption: var(--text-light);
+  
+  font-size: 1.05rem;
+  line-height: 1.8;
+  
+  h2, h3, h4 {
+    margin-top: $spacing-xl;
+    margin-bottom: $spacing-md;
+    
+    .header-anchor {
+      opacity: 0;
+      margin-left: $spacing-xs;
+      color: var(--post-content-anchor);
+      text-decoration: none;
+      transition: opacity $transition-fast;
+    }
+    
+    &:hover .header-anchor {
+      opacity: 1;
+    }
+  }
+  
+  img {
+    border-radius: $radius-md;
+    margin: $spacing-lg 0;
+    box-shadow: $shadow-sm;
+  }
+  
+  figure {
+    margin: $spacing-lg 0;
+    
+    figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--post-content-caption);
+      margin-top: $spacing-sm;
+    }
+  }
+}
+
+.post-footer {
+  // Variáveis locais do componente
+  --post-footer-border: var(--border);
+  
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid var(--post-footer-border);
+  
+  .post-share {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.post-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-item {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: $radius-md;
+    padding: $spacing-md;
+    text-decoration: none;
+    transition: all $transition-fast;
+    
+    &:hover {
+      border-color: var(--accent);
+      box-shadow: $shadow-sm;
+    }
+    
+    .nav-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .nav-title {
+      color: var(--navy);
+      font-weight: 600;
+    }
+    
+    &.prev {
+      .nav-label::before {
+        content: '← ';
+      }
+    }
+    
+    &.next {
+      text-align: right;
+      
+      .nav-label::after {
+        content: ' →';
+      }
+    }
+  }
+}
+
+// Sidebar widgets
+.widget {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+  
+  .widget-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: $spacing-sm;
+    padding-bottom: $spacing-sm;
+    border-bottom: 2px solid var(--accent);
+  }
+  
+  .widget-content {
+    font-size: 0.9rem;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    
+    li {
+      margin-bottom: $spacing-sm;
+      
+      a {
+        color: var(--text);
+        text-decoration: none;
+        transition: color $transition-fast;
+        
+        &:hover {
+          color: var(--accent);
+        }
+      }
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-xs;
+  margin: $spacing-xl 0;
+  flex-wrap: wrap;
+  
+  a, span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 $spacing-sm;
+    border: 1px solid var(--border);
+    border-radius: $radius-sm;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: all $transition-fast;
+    
+    &:hover:not(.current) {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    
+    &.current {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+  }
+}

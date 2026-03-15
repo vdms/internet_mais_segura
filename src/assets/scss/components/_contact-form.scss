@@ -1,0 +1,177 @@
+// =========================================
+// CONTACT FORM
+// =========================================
+
+.contact-form {
+  // Variáveis locais do componente
+  --form-bg: var(--white);
+  --form-border: var(--border);
+  --form-label-color: var(--navy);
+  --form-text: var(--text);
+  --form-text-light: var(--text-light);
+  --form-focus-border: var(--accent);
+  --form-focus-shadow: rgba(212, 129, 58, 0.1);
+  --form-disabled-bg: var(--cream);
+  --form-error-border: var(--red);
+  --form-error-shadow: rgba(192, 57, 43, 0.1);
+  --form-error-text: var(--red);
+  
+  background: var(--form-bg);
+  border: 1px solid var(--form-border);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  max-width: 600px;
+  
+  @include mobile {
+    padding: $spacing-md;
+  }
+}
+
+.form-group {
+  margin-bottom: $spacing-md;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: $spacing-xs;
+  color: var(--form-label-color);
+  font-size: 0.95rem;
+  
+  .required {
+    color: var(--form-error-text);
+  }
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 12px $spacing-sm;
+  border: 1px solid var(--form-border);
+  border-radius: $radius-sm;
+  font-family: $font-body;
+  font-size: 0.95rem;
+  color: var(--form-text);
+  background: var(--form-bg);
+  transition: all $transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--form-focus-border);
+    box-shadow: 0 0 0 3px var(--form-focus-shadow);
+  }
+  
+  &::placeholder {
+    color: var(--form-text-light);
+  }
+  
+  &:disabled {
+    background: var(--form-disabled-bg);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  &.error {
+    border-color: var(--form-error-border);
+    
+    &:focus {
+      box-shadow: 0 0 0 3px var(--form-error-shadow);
+    }
+  }
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-error {
+  display: block;
+  margin-top: $spacing-xs;
+  font-size: 0.85rem;
+  color: var(--form-error-text);
+}
+
+.form-help {
+  display: block;
+  margin-top: $spacing-xs;
+  font-size: 0.85rem;
+  color: var(--form-text-light);
+}
+
+.form-checkbox,
+.form-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-xs;
+  cursor: pointer;
+  
+  input {
+    margin-top: 4px;
+    cursor: pointer;
+  }
+  
+  label {
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: $spacing-sm;
+  margin-top: $spacing-lg;
+  
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.form-message {
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  margin-bottom: $spacing-md;
+  
+  &.success {
+    background: rgba(30, 122, 94, 0.1);
+    border: 1px solid var(--green);
+    color: var(--green);
+  }
+  
+  &.error {
+    background: rgba(192, 57, 43, 0.1);
+    border: 1px solid var(--red);
+    color: var(--red);
+  }
+  
+  &.info {
+    background: rgba(26, 74, 138, 0.1);
+    border: 1px solid var(--blue);
+    color: var(--blue);
+  }
+}
+
+.form-loading {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: var(--text-light);
+  
+  &::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: $radius-full;
+    animation: spin 0.6s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

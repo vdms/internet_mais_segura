@@ -1,0 +1,259 @@
+// =========================================
+// SECTION LAYOUTS
+// =========================================
+
+section {
+  padding: $spacing-xl $spacing-lg;
+  
+  @include mobile {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.section-inner {
+  @include container;
+}
+
+.section-wide {
+  @include container($max-width-wide);
+}
+
+.section-label {
+  // Variáveis locais do componente
+  --section-label-color: var(--accent);
+  --section-label-border: var(--accent);
+  
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--section-label-color);
+  margin-bottom: $spacing-sm;
+  padding-bottom: $spacing-xs;
+  border-bottom: 2px solid var(--section-label-border);
+}
+
+.section-intro {
+  // Variáveis locais do componente
+  --section-intro-color: var(--text-light);
+  
+  font-size: 1.1rem;
+  color: var(--section-intro-color);
+  margin-bottom: $spacing-lg;
+  max-width: 700px;
+}
+
+// Grid layouts for cards
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+  
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Specific section styles
+.intro-section,
+.risks-section,
+.sinais-section,
+.conselhos-section,
+.tedio-section,
+.ferramentas-section,
+.conversa-section,
+.recursos-section {
+  // Variáveis locais do componente
+  --section-heading-color: var(--navy);
+  
+  h2 {
+    margin-bottom: $spacing-md;
+    color: var(--section-heading-color);
+  }
+}
+
+// Table styles (for warning signs section)
+.warning-table {
+  // Variáveis locais do componente
+  --table-bg: var(--white);
+  --table-border: var(--border);
+  --table-header-bg: var(--cream);
+  --table-header-text: var(--navy);
+  --table-row-hover: rgba(212, 129, 58, 0.02);
+  --table-urgency-high: var(--red);
+  --table-urgency-medium: var(--accent);
+  --table-urgency-low: var(--green);
+  
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--table-bg);
+  border: 1px solid var(--table-border);
+  border-radius: $radius-md;
+  overflow: hidden;
+  margin: $spacing-lg 0;
+  
+  th, td {
+    padding: $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid var(--table-border);
+  }
+  
+  th {
+    background: var(--table-header-bg);
+    font-weight: 600;
+    color: var(--table-header-text);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+  
+  tr:hover {
+    background: var(--table-row-hover);
+  }
+  
+  .urgency-high {
+    color: var(--table-urgency-high);
+    font-weight: 600;
+  }
+  
+  .urgency-medium {
+    color: var(--table-urgency-medium);
+    font-weight: 600;
+  }
+  
+  .urgency-low {
+    color: var(--table-urgency-low);
+    font-weight: 600;
+  }
+  
+  @include mobile {
+    display: block;
+    
+    thead {
+      display: none;
+    }
+    
+    tbody, tr, td {
+      display: block;
+    }
+    
+    tr {
+      margin-bottom: $spacing-md;
+      border: 1px solid var(--border);
+      border-radius: $radius-md;
+    }
+    
+    td {
+      padding: $spacing-sm;
+      position: relative;
+      padding-left: 40%;
+      
+      &::before {
+        content: attr(data-label);
+        position: absolute;
+        left: $spacing-sm;
+        font-weight: 600;
+        color: var(--navy);
+      }
+    }
+  }
+}
+
+// Quote/dialogue boxes
+.dialogue-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  margin: $spacing-lg 0;
+  
+  .dialogue-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: $spacing-sm;
+  }
+  
+  .dialogue-content {
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  
+  &.positive {
+    border-left: 4px solid var(--green);
+    background: rgba(30, 122, 94, 0.02);
+  }
+  
+  &.negative {
+    border-left: 4px solid var(--red);
+    background: rgba(192, 57, 43, 0.02);
+  }
+}
+
+// List styles
+.recursos-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.boredom-jar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.jar-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  
+  .jar-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .jar-text {
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+}
