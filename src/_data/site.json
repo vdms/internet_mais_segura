@@ -1,6 +1,7 @@
 {
   "name": "Internet mais segura",
   "url": "https://vdms.github.io/internet_mais_segura",
+  "baseUrl": "/internet_mais_segura",
   "description": "Guia de segurança online para proteger crianças e jovens na internet",
   "author": "Vicente Sarmento",
   "locale": "pt-PT",

@@ -41,8 +41,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode("featuredImage", function(src, alt, photographer = "", photographerUsername = "") {
     if (!alt) alt = "";
     
+    const pathPrefix = this.page && this.page.url ? this.page.url.split('/').slice(0, -1).map(() => '..').join('/') || '.' : '.';
+    const imagePath = `${pathPrefix}/assets/images/${src}`;
+    
     let html = '<figure class="featured-image">';
-    html += `<img src="/assets/images/${src}" alt="${alt}" loading="eager">`;
+    html += `<img src="${imagePath}" alt="${alt}" loading="eager">`;
     
     if (photographer || photographerUsername) {
       html += '<figcaption class="image-credit">';
@@ -95,6 +98,7 @@ module.exports = function(eleventyConfig) {
       includes: "_includes",
       data: "_data"
     },
+    pathPrefix: "/internet_mais_segura/",
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

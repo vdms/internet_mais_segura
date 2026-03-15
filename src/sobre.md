@@ -57,7 +57,7 @@ description: Sobre o projeto Internet mais segura
       
       <h2>Contacto</h2>
       <p>
-        Para questões, sugestões ou reportar erros, visite a página <a href="/contacto/">Contacto</a>.
+        Para questões, sugestões ou reportar erros, visite a página <a href="{{ '/contacto/' | url }}">Contacto</a>.
       </p>
       <p>
         <strong>Em caso de emergência envolvendo uma criança, contacte imediatamente as autoridades: 112</strong>

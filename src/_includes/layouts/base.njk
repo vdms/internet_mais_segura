@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="{{ ogType or 'website' }}">
@@ -39,10 +39,10 @@
   <meta name="theme-color" content="#0d1f3c">
   
   <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="Internet mais segura - Blog" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Internet mais segura - Blog" href="{{ '/feed.xml' | url }}">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/png" href="{{ '/favicon.png' | url }}">
   
   {% block head %}{% endblock %}
 </head>
@@ -59,7 +59,7 @@
   {% include "components/search-modal.njk" %}
   
   <!-- JavaScript -->
-  <script src="/assets/js/main.js" type="module"></script>
+  <script src="{{ '/assets/js/main.js' | url }}" type="module"></script>
   
   {% block scripts %}{% endblock %}
 </body>

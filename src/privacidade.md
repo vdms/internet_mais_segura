@@ -89,7 +89,7 @@ description: Política de privacidade do site Internet mais segura
         Como não recolhemos dados pessoais durante a navegação, não há dados para aceder, corrigir ou apagar do nosso lado.
       </p>
       <p>
-        Se submeteu o formulário de contacto e quer que a sua mensagem seja apagada, <a href="/contacto/">contacte-nos</a> e apagaremos do sistema FormSpree.
+        Se submeteu o formulário de contacto e quer que a sua mensagem seja apagada, <a href="{{ '/contacto/' | url }}">contacte-nos</a> e apagaremos do sistema FormSpree.
       </p>
       
       <h2>7. Crianças</h2>
@@ -104,7 +104,7 @@ description: Política de privacidade do site Internet mais segura
       
       <h2>9. Contacto</h2>
       <p>
-        Para questões sobre privacidade, use o <a href="/contacto/">formulário de contacto</a>.
+        Para questões sobre privacidade, use o <a href="{{ '/contacto/' | url }}">formulário de contacto</a>.
       </p>
       
       <hr style="margin: 40px 0;">
