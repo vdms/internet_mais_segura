@@ -23,12 +23,23 @@
   
   background: var(--hero-bg);
   color: var(--hero-text);
-  padding: $spacing-2xl $spacing-lg ($spacing-2xl - 20px);
   position: relative;
   overflow: hidden;
   
   @include mobile {
-    padding: $spacing-xl $spacing-md ($spacing-xl - 20px);
+    padding: $spacing-md $spacing-sm;
+  }
+
+  @include tablet-portrait {
+    padding: $spacing-lg $spacing-md;
+  }
+
+  @include tablet {
+    padding: $spacing-lg $spacing-md;
+  }
+
+  @include desktop {
+    padding: $spacing-2xl $spacing-lg ($spacing-2xl - 20px);
   }
   
   &::before {
@@ -43,13 +54,6 @@
     background-size: 10px 10px;
     pointer-events: none;
     z-index: 1;
-    
-    @include mobile {
-      width: 400px;
-      height: 400px;
-      top: -50px;
-      right: -50px;
-    }
   }
   
   // Accent border bottom
@@ -73,10 +77,33 @@
 .hero-inner {
   @include container;
 
-  left: 200px;
   position: relative;
-  width: $max-width-content;
   z-index: 2;
+  
+  @include mobile {
+    left: 0;
+    padding: 0 $spacing-xs;
+    width: 100%;
+  }
+
+  @include tablet-portrait {
+    left: 0;
+    padding: 0;
+  }
+
+  @include tablet {
+    left: 0;
+    margin: 0;
+    padding: 0 100px 0 0;
+    width: 70%;
+  }
+
+  @include desktop {
+    left: 200px;
+    margin: 0 auto;
+    padding: 0;
+    width: (#{$max-width-content - 100px});
+  }
   
   > *:not(:last-child) {
     animation: fadeUp 0.6s ease backwards;
@@ -89,13 +116,35 @@
   > *:nth-child(4) { animation-delay: 0.4s; }
 
   img {
-    position: absolute;
-    bottom: -150px;
-    left: 0;
-    width: 800px;
+    display: none;
     height: auto;
-    transform: translateX(-90%);
+    position: absolute;
     z-index: 1;
+
+    @include tablet-portrait {
+        display: block;
+        left: 65%;
+        bottom: -80px;
+        transform: translateX(-50%);
+        width: 500px;
+    }
+
+    @include tablet {
+        display: block;
+        right: 0;
+        bottom: -120px;
+        width: 100%;
+        transform: translateX(60%);
+        left: unset;
+    }
+
+    @include desktop {
+      bottom: -150px;
+      left: 0;
+      transform: translateX(-94%);
+      width: 700px;
+    }
+
   }
 
 }
@@ -113,6 +162,11 @@
   padding: $spacing-xs $spacing-sm;
   border-radius: $radius-sm;
   margin-bottom: $spacing-md;
+
+  @include mobile {
+    display: none;
+  }
+
 }
 
 .hero h1 {
@@ -132,9 +186,13 @@
 .hero-lead {
   font-size: clamp(1rem, 2vw, 1.15rem);
   line-height: 1.6;
-  margin-bottom: $spacing-lg;
   color: var(--hero-text-dim);
   max-width: 700px;
+  
+  @include tablet {
+    margin-bottom: $spacing-lg;
+  }
+
 }
 
 // Hero stats (3 columns)
@@ -147,7 +205,17 @@
   @include mobile {
     grid-template-columns: 1fr;
     gap: $spacing-sm;
+    margin-top: $spacing-xs;
   }
+
+  @include tablet-portrait {
+    gap: $spacing-sm;
+    grid-template-columns: unset;
+    grid-template-rows: repeat(3, 1fr);
+    margin-top: $spacing-lg;
+    width: fit-content;
+  }
+
 }
 
 .stat-item {
@@ -155,6 +223,22 @@
   background: var(--stat-bg);
   border-radius: $radius-md;
   border: 1px solid var(--stat-border);
+
+  @include mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm;
+  }
+
+  @include tablet-portrait {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm;
+  }
   
   .stat-number {
     font-size: clamp(1.8rem, 3vw, 2.4rem);
@@ -163,12 +247,13 @@
     font-family: $font-display;
     display: block;
     margin-bottom: $spacing-xs;
+    white-space: nowrap;
   }
   
   .stat-label {
     font-size: 0.85rem;
     color: var(--stat-label);
-    line-height: 1.4;
+    line-height: 1;
   }
 
 }

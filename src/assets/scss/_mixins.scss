@@ -14,8 +14,14 @@
   }
 }
 
+@mixin tablet-portrait {
+  @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
 @mixin desktop {
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: #{$breakpoint-desktop + 1}) {
     @content;
   }
 }

@@ -6,12 +6,13 @@ section {
   padding: $spacing-xl $spacing-lg;
   
   @include mobile {
-    padding: $spacing-lg $spacing-md;
+    padding: $spacing-md $spacing-sm;
   }
 }
 
 .section-inner {
   @include container;
+  padding: 0 $spacing-xs;
 }
 
 .section-wide {
