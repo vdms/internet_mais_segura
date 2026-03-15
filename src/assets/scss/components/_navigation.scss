@@ -127,7 +127,7 @@ nav {
   gap: 5px;
   color: var(--nav-link-color);
   
-  @include mobile {
+  @media (max-width: #{$breakpoint-desktop - 1}) {
     display: flex;
   }
   
@@ -155,7 +155,7 @@ nav {
 }
 
 // Mobile menu
-@include mobile {
+@media (max-width: #{$breakpoint-desktop - 1}) {
   .nav-links {
     position: fixed;
     top: $nav-height;
